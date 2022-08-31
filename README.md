@@ -12,6 +12,6 @@ Welcome to CS 110. I look forward to working with you this semester. This is you
 
 Preferred Name:Yong
 
-Discord username:yong
+Discord username:yong#0635
 
 REPL url:https://github.com/bucs110FALL22/portfolio-yongyin21
