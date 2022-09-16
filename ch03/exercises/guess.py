@@ -1,10 +1,10 @@
 import random
-list = (range(0,10 ))
+list = (range(0,11 ))
 randys = random.choice(list)
 randys = int(randys)
 print(randys)
 
-for i in [randys]*3:
+for i in [randys]*10:
   guess = input("What is your guess?")
   guess = int(guess)
   if guess < randys:
