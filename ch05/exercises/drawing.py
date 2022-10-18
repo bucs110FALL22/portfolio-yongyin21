@@ -1,7 +1,7 @@
 import turtle
 def drawEQShape():
   steve = turtle.Turtle()
-  steve.shape = ("turtle")
+  steve.shape = "turtle"
   steve.color = ("green")
   sidelength = int(input("Length of sides?"))
   number_of_sides = int(input("Number of sides?"))
