@@ -1,3 +1,5 @@
+score = input("what is your score?")
+
 def percentage_to_letter(score): 
   if score >= 90: 
     Grade = "A"
