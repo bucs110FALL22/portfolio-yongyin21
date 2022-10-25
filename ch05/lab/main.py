@@ -1,33 +1,43 @@
-from collections import defaultdict
 import pygame
-def algorithm(n): 
-  count = 0
-  while n > 1: 
-    if n % 2 == 0: 
-      n /= 2
-    else: 
-      n = 3 * n + 1
-    print (n)
-    count += 1
-  return count
-def makedictionary(upper_Limit):
-  max_val = 0
-  upper_limit = upper_Limit
-  lower_limit = 2
-  iters = {}
-  iters = defaultdict(list)
-  for i in range (lower_limit,upper_limit):
-    if algorithm (i) > max_val: 
-      max_val = algorithm (i)
-    iters [int(i)].append(int(algorithm(i)))
-  return iters , max_val
-  pygame.init()
-  pygame.display.init()
-  upper_limit = 20
-  lower_limit = 2
-  iters, max_val = makedictionary(upper_limit)
-  max_so_far = 0
-  scale = 5
-  display = pygame.display.set_mode()
-  font = pygame.font.Font(None, 13)
-  list = list(iters.items())
+pygame.init()
+display = pygame.display.set_mode((600,600))
+scale = 5
+def threeNplus1(n):
+    count = 0
+    while (n != 1.0):
+       count += 1
+       if (n % 2 == 0) == True:
+        n = int(n / 2)
+       elif (n % 2 == 0) == False:
+        n = int(3 * n + 1)
+    return count
+upper_limit = 20
+iters = {}
+start = 2
+max_so_far = 0
+for i in range(start, upper_limit):
+  count = threeNplus1(i)
+  iters[i] = count
+  if max_so_far < count:
+    max_so_far = count
+    max_so_farcurrent_max = count
+  coordinates = [(x* scale, y * scale) for x, y in iters.items()]
+  display.fill((255,255,255))
+  pygame.display.flip
+  if len(iters) >= 2:
+    pygame.draw.lines(display, "purple", False, coordinates)
+    new_display = pygame.transform.flip(display, False, True)
+    display.blit( new_display , (0, 0) )
+    font = pygame.font.Font(None, 30)
+    msg = font.render(str(max_so_far), False, "blue")
+    display.blit(msg, (10,10))
+    pygame.display.flip()
+    pygame.time.wait(500)
+print(iters)
+
+running = True
+while running:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      pygame.quit()
+      running = False
