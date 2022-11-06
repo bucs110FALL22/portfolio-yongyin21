@@ -20,19 +20,19 @@ for i in range(start, upper_limit):
   iters[i] = count
   if max_so_far < count:
     max_so_far = count
-    max_so_farcurrent_max = count
+    max_val = count
   coordinates = [(x* scale, y * scale) for x, y in iters.items()]
-  display.fill((255,255,255))
+  display.fill((0,0,255))
   pygame.display.flip
   if len(iters) >= 2:
     pygame.draw.lines(display, "purple", False, coordinates)
     new_display = pygame.transform.flip(display, False, True)
     display.blit( new_display , (0, 0) )
     font = pygame.font.Font(None, 30)
-    msg = font.render(str(max_so_far), False, "blue")
+    msg = font.render(str(max_so_far), False, "red")
     display.blit(msg, (10,10))
     pygame.display.flip()
-    pygame.time.wait(500)
+    pygame.time.wait(600)
 print(iters)
 
 running = True
